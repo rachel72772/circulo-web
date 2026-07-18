@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
+  <meta name="theme-color" content="#17151f" />
+  <link rel="manifest" href="manifest.webmanifest" />
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" crossorigin="" />
+  <link rel="stylesheet" href="styles.css" />
+  <title>Círculo</title>
+</head>
+<body>
+  <main class="shell">
+    <header><h1>Círculo</h1><p>Ubicación privada para un grupo concreto.</p></header>
+
+    <section id="joinCard" class="card">
+      <label>Tu nombre<input id="name" maxlength="40" autocomplete="name" /></label>
+      <label>Código del círculo<input id="circle" maxlength="32" autocomplete="off" /></label>
+      <button id="join">Entrar</button>
+      <p class="note">Cada participante decide cuándo empezar y detener la ubicación.</p>
+    </section>
+
+    <section id="app" hidden>
+      <div class="toolbar card">
+        <div><strong id="circleTitle"></strong><small id="status">En pausa</small></div>
+        <button id="share" class="primary">Compartir ubicación</button>
+        <button id="sos" class="danger">SOS</button>
+        <button id="invite">Compartir enlace</button>
+      </div>
+      <div id="map"></div>
+      <section class="card"><h2>Miembros</h2><div id="members"></div></section>
+    </section>
+  </main>
+
+  <dialog id="configDialog">
+    <form method="dialog" class="card">
+      <h2>Configuración pendiente</h2>
+      <p>La app necesita un proyecto Firebase para sincronizar ubicaciones entre teléfonos.</p>
+      <button>Cerrar</button>
+    </form>
+  </dialog>
+
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" crossorigin=""></script>
+  <script type="module" src="app.js"></script>
+</body>
+</html>
